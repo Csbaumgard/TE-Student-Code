@@ -429,13 +429,17 @@ double timeWorkingTogether = 840 / combinedHourlyRate;
 		with a period. Use "Grace", "Hopper, and "B" for the first name, last name, and middle initial.
 		Example: "John", "Smith, "D" —> "Smith, John D."
 	    */
-
-
+String firstName = "Grace ";
+String lastName = "Hopper, ";
+String middleInitial = "B.";
+String fullName = lastName + firstName + middleInitial;
 	    /* Exercise 53
 	    53. The distance between New York and Chicago is 800 miles, and the train has already travelled 537 miles.
 	    What percentage of the trip as a whole number has been completed?
 	    */
-
+int distanceBetweenNewYorkAndChicago = 800;
+int percentageTraveled = distanceBetweenNewYorkAndChicago / 537;
+int totalPercentage = percentageTraveled * 67;
 	}
 
 }
