@@ -328,56 +328,64 @@ double cupcakesPerChild = totalCupcakes / 8.0;
         tiny glass jars. If each jar is to contain six cookies, how many
         cookies will not be placed in a jar?
         */
-
+int gingerbreadCookiesMade = 47;
+int cookiesNotInJar = gingerbreadCookiesMade % 6;
 
         /* Exercise 41
         41. She also prepared 59 croissants which she plans to give to her 8
         neighbors. If each neighbor received an equal number of croissants,
         how many will be left with Marian?
         */
-
+int croissantsPrepared = 59;
+int leftoverCroissants = croissantsPrepared % 8;
 
         /* Exercise 42
         42. Marian also baked oatmeal cookies for her classmates. If she can
         place 12 cookies on a tray at a time, how many trays will she need to
         prepare 276 oatmeal cookies at a time?
         */
-
+int oatmealCookies = 276;
+int numberOfTrays = oatmealCookies / 12;
 
         /* Exercise 43
         43. Marian’s friends were coming over that afternoon so she made 480
         bite-sized pretzels. If one serving is equal to 12 pretzels, how many
         servings of bite-sized pretzels was Marian able to prepare?
         */
-
+int biteSizedPretzels = 480;
+int numberOfServings = biteSizedPretzels / 12;
 
         /* Exercise 44
         44. Lastly, she baked 53 lemon cupcakes for the children living in the city
         orphanage. If two lemon cupcakes were left at home, how many
         boxes with 3 lemon cupcakes each were given away?
         */
-
+int lemonCupcakes = 51;
+int boxesGivenAway = lemonCupcakes / 3;
 
         /* Exercise 45
         45. Susie's mom prepared 74 carrot sticks for breakfast. If the carrots
         were served equally to 12 people, how many carrot sticks were left
         uneaten?
         */
-
+int carrotSticks = 74;
+int uneatenCarrotSticks = carrotSticks % 12;
 
         /* Exercise 46
         46. Susie and her sister gathered all 98 of their teddy bears and placed
         them on the shelves in their bedroom. If every shelf can carry a
         maximum of 7 teddy bears, how many shelves will be filled?
         */
-
+int teddyBears = 98;
+int shelvesFilled = teddyBears / 7;
 
         /* Exercise 47
         47. Susie’s mother collected all family pictures and wanted to place all of
         them in an album. If an album can contain 20 pictures, how many
         albums will she need if there are 480 pictures?
         */
-
+int pictures = 480;
+int albumsNeeded = pictures / 20;
 
         /* Exercise 48
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
@@ -385,27 +393,34 @@ double cupcakesPerChild = totalCupcakes / 8.0;
         cards, how many boxes were filled and how many cards are there in
         the unfilled box?
         */
-
+int joesTradingCards = 94;
+int boxesFilled = joesTradingCards / 8;
+int cardsInUnfilledBox = joesTradingCards % 8;
 
         /* Exercise 49
         49. Susie’s father repaired the bookshelves in the reading room. If he has
         210 books to be distributed equally on the 10 shelves he repaired,
         how many books will each shelf contain?
         */
-
+int fathersBooks = 210;
+int booksOnEachShelf = fathersBooks / 10;
 
         /* Exercise 50
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
-
+double christinaCroissants = 17.0;
+double croissantsForEachGuest = christinaCroissants / 7;
 
 	    /* Exercise 51
 	    51. Bill and Jill are house painters. Bill can paint a 12 x 14 room in 2.15 hours, while Jill averages
 	    1.90 hours. How long will it take the two painters working together to paint 5 12 x 14 rooms?
 	    Hint: Calculate the hourly rate for each painter, combine them, and then divide the total walls in feet by the combined hourly rate of the painters.
 	    */
-
+double billsHourlyRate = 168 / 2.15;
+double jillsHourlyRate = 168 / 1.90;
+double combinedHourlyRate = billsHourlyRate + jillsHourlyRate;
+double timeWorkingTogether = 840 / combinedHourlyRate;
 
 	    /* Exercise 52
 	    52. Create and assign variables to hold a first name, last name, and middle initial. Using concatenation,
