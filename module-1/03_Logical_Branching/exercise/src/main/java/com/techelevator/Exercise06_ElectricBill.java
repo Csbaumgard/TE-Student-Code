@@ -24,6 +24,11 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110) ➔ 22.5
      */
     public double calculateElectricBill(double unitsUsed) {
+        if (unitsUsed <= 100) {
+            return unitsUsed * BASE_RATE;
+        } else if (unitsUsed > 100) {
+            return (100 * BASE_RATE) + ((unitsUsed - 100) * EXCESS_RATE);
+        }
         return 0;
     }
 
@@ -39,6 +44,15 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, true) ➔ 21.375
      */
     public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
+        if (unitsUsed <= 100 && hasRenewableEnergy) {
+            return (unitsUsed * BASE_RATE) * 0.95;
+        } else if (unitsUsed <= 100) {
+            return unitsUsed * BASE_RATE;
+        } else if (unitsUsed > 100 && hasRenewableEnergy) {
+            return ((100 * BASE_RATE) + (unitsUsed -100) * EXCESS_RATE) * 0.95;
+        } else if (unitsUsed > 100) {
+            return (100 * BASE_RATE) + ((unitsUsed - 100) * EXCESS_RATE);
+        }
         return 0;
     }
 
@@ -63,6 +77,19 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 120) ➔ -2.0
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
+        if (unitsUsed <= 100 && unitsReturned <= 0) {
+            return unitsUsed * BASE_RATE;
+        } else if (unitsUsed <= 100 && unitsReturned > unitsUsed) {
+            return ((unitsUsed * BASE_RATE) - (unitsReturned * 0.20));
+        } else if (unitsUsed <= 100 && unitsReturned > 0) {
+            return (unitsUsed * BASE_RATE) * 0.95;
+        } else if (unitsUsed > 100 && unitsReturned <= 0) {
+            return ((100 * BASE_RATE) + (unitsUsed -100) * EXCESS_RATE);
+        } else if (unitsUsed > 100 && unitsReturned > unitsUsed) {
+            return (100 * BASE_RATE) + (((unitsUsed - 100) * EXCESS_RATE) - (unitsReturned * 0.20));
+        } else if (unitsUsed > 100 && unitsReturned > 0) {
+            return (100 * BASE_RATE) + ((unitsUsed -100) * EXCESS_RATE) * 0.95;
+        }
         return 0;
     }
 }
