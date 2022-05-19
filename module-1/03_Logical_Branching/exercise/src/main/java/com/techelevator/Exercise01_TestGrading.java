@@ -18,11 +18,14 @@ public class Exercise01_TestGrading {
     gradeTestPassFail(45) ➔ false
      */
     public boolean gradeTestPassFail(int score) {
+
         if (score >= 90) {
             return true;
         } else if (score >=70) {
             return true;
         }
+
+
         return false;
     }
 
@@ -42,6 +45,7 @@ public class Exercise01_TestGrading {
     gradeTestNumeric(10) ➔ 0
      */
     public int gradeTestNumeric(int score) {
+
         if (score >= 90) {
             return 3;
         } else if (score >= 50) {
@@ -49,6 +53,8 @@ public class Exercise01_TestGrading {
         } else if (score >= 25) {
             return 1;
         }
+
+
         return 0;
     }
 
@@ -68,6 +74,7 @@ public class Exercise01_TestGrading {
     gradeTestLetter(45) ➔ 'F'
      */
     public char gradeTestLetter(int score) {
+
         if (score >= 90) {
             return 'A';
         } else if (score >= 80) {
@@ -78,5 +85,6 @@ public class Exercise01_TestGrading {
             return 'D';
         }
         return 'F';
+
     }
 }

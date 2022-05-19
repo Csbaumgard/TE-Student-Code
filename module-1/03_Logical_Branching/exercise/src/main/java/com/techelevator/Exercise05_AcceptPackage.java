@@ -24,8 +24,13 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50) ➔ false
      */
     public boolean acceptPackage(int weightPounds) {
+
         return weightPounds <= 40;
     }
+
+
+
+
     /*
     Scamper Shipping delivers packages by hand, and some packages can be awkward to carry.
     Scamper decides that in addition to the package being no more than 40 pounds, they must also limit its size.
@@ -40,9 +45,11 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches) {
+
         if (weightPounds <= 40 && lengthInches * widthInches * heightInches <= 6912) {
             return true;
         }
+
         return false;
     }
 
@@ -66,11 +73,13 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10, true) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
+
         if (weightPounds <= 40 && lengthInches * widthInches * heightInches <= 6912 && lengthInches <= 66 && widthInches <= 66 && heightInches <= 66) {
             return true;
         } else if (weightPounds <= 40 && lengthInches * widthInches * heightInches <= 6912 && lengthInches > 66 || widthInches > 66 || heightInches > 66 && isSurchargePaid) {
             return true;
         }
+
         return false;
     }
 }
