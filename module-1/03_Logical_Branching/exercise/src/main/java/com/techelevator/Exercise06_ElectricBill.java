@@ -85,15 +85,15 @@ public class Exercise06_ElectricBill {
         if (unitsUsed <= 100 && unitsReturned <= 0) {
             return (unitsUsed - unitsReturned) * BASE_RATE;
         } else if (unitsUsed <= 100 && unitsReturned > unitsUsed) {
-            return ((unitsUsed * BASE_RATE) - (unitsReturned * 0.20));
+            return ((unitsUsed - unitsReturned )* 0.20);
         } else if (unitsUsed <= 100 && unitsReturned > 0) {
             return ((unitsUsed - unitsReturned) * BASE_RATE) * 0.95;
         } else if (unitsUsed > 100 && unitsReturned <= 0) {
             return ((100 * BASE_RATE) + (unitsUsed -100) * EXCESS_RATE);
         } else if (unitsUsed > 100 && unitsReturned > unitsUsed) {
-            return (100 * BASE_RATE) + (((unitsUsed - 100) * EXCESS_RATE) - (unitsReturned * 0.20));
+            return ((unitsUsed - unitsReturned) * 0.20);
         } else if (unitsUsed > 100 && unitsReturned > 0) {
-            return (100 * BASE_RATE) + ((unitsUsed -100) * EXCESS_RATE) * 0.95;
+            return ;
         }
 
         return 0;
