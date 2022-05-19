@@ -93,7 +93,7 @@ public class Exercise06_ElectricBill {
         } else if (unitsUsed > 100 && unitsReturned > unitsUsed) {
             return ((unitsUsed - unitsReturned) * 0.20);
         } else if (unitsUsed > 100 && unitsReturned > 0) {
-            return ;
+            return ((unitsUsed - unitsReturned) * 0.20);
         }
 
         return 0;
