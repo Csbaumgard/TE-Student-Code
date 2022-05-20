@@ -23,12 +23,7 @@ public class Exercise02_BoardingGate {
     generateSeatingChart(5) → [true, true, true, true, true]
     generateSeatingChart(2) → [true, true]
      */
-    public boolean[] generateSeatingChart(int numberOfSeats) {
-        for (int i = 0; i < numberOfSeats; i++) {
-            return new boolean
-        }
 
-    }
 
     /*
     Once passengers begin boarding the plane, gate attendants need a way to determine how many available
