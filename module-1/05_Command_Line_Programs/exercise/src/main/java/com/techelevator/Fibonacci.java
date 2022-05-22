@@ -15,7 +15,7 @@ public class Fibonacci {
 		int inputToInt = Integer.parseInt(userInput);
 
 		while (i <= inputToInt && first <= inputToInt) {
-			System.out.println(first + " ");
+			System.out.println(first);
 			third = second + first;
 			first = second;
 			second = third;
