@@ -11,7 +11,7 @@ public class Exercise02_BoardingGate {
         public boolean[] generateSeatingChart(int numberOfSeats) {
             boolean[] seatingChart = new boolean[numberOfSeats];
             for (int i = 0; i < numberOfSeats; i++) {
-                return new boolean[]{true};
+                seatingChart[i] = true;
             }
            return seatingChart;
         }
