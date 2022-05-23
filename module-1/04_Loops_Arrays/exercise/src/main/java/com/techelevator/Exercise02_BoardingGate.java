@@ -8,13 +8,13 @@ public class Exercise02_BoardingGate {
         A value of TRUE indicates that seat is currently available.
         A value of FALSE indicates the seat is not available.
      */
-        public boolean generateSeatingChart(int[] numberOfSeats) {
-            for (int i = 0; i < numberOfSeats.length; i++) {
-                return true;
-
+        public boolean[] generateSeatingChart(int numberOfSeats) {
+            boolean[] seatingChart = new boolean[numberOfSeats];
+            for (int i = 0; i < numberOfSeats; i++) {
+                return new boolean[]{true};
             }
-    return true;
-}
+           return seatingChart;
+        }
     /*
     A nearby airport has an incoming flight from Local Jetways. As the passengers disembark, the gate
     attendant's first responsibility is to generate a new seating chart with each seat initially available.
@@ -45,7 +45,11 @@ public class Exercise02_BoardingGate {
     getAvailableSeatCount([]) → 0
      */
     public int getAvailableSeatCount(boolean[] seatingChart) {
-        return 0;
+        int trueCounter = 0;
+        for (int i = 0; i < seatingChart.length; i++) {
+            trueCounter++;
+        }
+        return trueCounter;
     }
 
     /*
@@ -63,17 +67,23 @@ public class Exercise02_BoardingGate {
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
         int howManyFullRows = 0;
+
         int counter = 0;
+
         for (int i = 0; i < seatingChart.length; i ++) {
             boolean isStartOfRow = i % 3 == 0;
 
             if (isStartOfRow) {
                 counter = 0;
+            }
 
+                if (!seatingChart[i]) {
+                    counter++;
                 if (counter == 3) {
                     howManyFullRows++;
                 }
-            }
+                }
+
 
             }
 
