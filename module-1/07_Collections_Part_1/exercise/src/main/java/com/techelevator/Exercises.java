@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -30,7 +31,8 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String[] array = stringList.toArray(new String[0]);
+		return array;
 	}
 
 	/*
@@ -41,7 +43,13 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> list = new ArrayList<>(stringArray.length);
+		for (String currentString : stringArray) {
+			if (currentString.length() != 4);
+			list.add(currentString);
+		}
+
+		return list;
 	}
 
 	/*
@@ -51,7 +59,13 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> doubleList = new ArrayList<>();
+		for (double currentInteger : intArray) {
+			double divideInteger = currentInteger / 2;
+			doubleList.add(divideInteger);
+
+		}
+		return doubleList;
 	}
 
 	/*
@@ -61,6 +75,7 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
+
 		return null;
 	}
 
@@ -98,6 +113,12 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
+		List<String> newList = new ArrayList<>(integerArray.length);
+		for (int currentInteger : integerArray) {
+			if (currentInteger % 3 == 0) {
+
+			}
+		}
 		return null;
 	}
 
