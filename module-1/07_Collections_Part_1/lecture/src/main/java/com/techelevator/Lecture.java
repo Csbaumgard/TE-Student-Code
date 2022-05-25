@@ -147,7 +147,7 @@ public class Lecture {
 		while (!lorem.isEmpty()) {
 			String next = lorem.pop();
 			System.out.println("Here you go, " + next);
-			
+
 		}
 	}
 }

@@ -44,8 +44,10 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
+		String firstPiece = out.substring(0, 2);
+		String lastPiece = out.substring(2);
 
-		return null;
+		return firstPiece + word + lastPiece;
 	}
 
 	/*
@@ -70,7 +72,12 @@ public class Exercises {
 	 firstTwo("ab") → "ab"
 	 */
 	public String firstTwo(String str) {
-		String firstTwos = str;
+		if (str.length() == 0) {
+			return "";
+		} else if (str.length() < 2) {
+			return str;
+		}
+		String firstTwos = str.substring(0, 2);
 		return firstTwos;
 
 	}
@@ -221,11 +228,12 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int index) {
-		int isThereTwoChar = str.length() - index;
-		if (isThereTwoChar < 2) {
+		if (str.length() - index <= 1) {
 			return str.substring(0, 2);
-		}
-		return str.substring(index, index + 1);
+		} else
+
+			return str.substring(index, index + 1);
+
 	}
 
 	/*
@@ -236,7 +244,7 @@ public class Exercises {
 	 middleThree("solving") → "lvi"
 	 */
 	public String middleThree(String str) {
-		return null;
+		return str.substring((str.length() / 2) - 1, (str.length() / 2) + 2);
 	}
 
 	/*
@@ -248,6 +256,13 @@ public class Exercises {
 	 hasBad("xxbadxx") → false
 	 */
 	public boolean hasBad(String str) {
+		if (str.length() <= 2) {
+			return false;
+		} else if (str.length() == 3 && !str.contains("bad")) {
+			return false;
+		} else if (str.charAt(0) == 'b' || str.charAt(1) == 'b') {
+			return true;
+		}
 		return false;
 	}
 
@@ -258,7 +273,11 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		return null;
+		String hiHiHi = "";
+		for (int i = 0; i < n; i++) {
+			hiHiHi += str;
+		}
+		return hiHiHi;
 	}
 
 	/*
@@ -269,7 +288,19 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+		String lessThan3 = "";
+		String frontRepeat = "";
+		if (str.length() < 3) {
+			for (int i = 0; i < n; i++) {
+				lessThan3 += str;
+			}
+			return lessThan3;
+		} else {
+			for (int i = 0; i < n; i++) {
+				frontRepeat += str.substring(0, 3);
+			}
+			return frontRepeat;
+		}
 	}
 
 	/*
@@ -279,7 +310,15 @@ public class Exercises {
 	 countXX("xxxx") →
 	 */
 	public int countXX(String str) {
-		return 0;
+		int counter = 0;
+		for (int i = 0; i < str.length() - 1; i++) {
+			if (str.charAt(i) == 'x' && str.charAt(i + 1) == 'x') {
+				counter++;
+			}
+
+		}
+
+		return counter;
 	}
 
 	/*
@@ -289,6 +328,17 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
+		int indexOfX = str.indexOf("x");
+		String substring = str.substring(indexOfX);
+		if (!str.contains("x")) {
+			return false;
+		} else if (indexOfX + 1 >= str.length()) {
+			return false;
+		} else if (substring.startsWith("xx")) {
+			return true;
+		}
+
+
 		return false;
 	}
 
@@ -299,7 +349,11 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		String everyOther = "";
+		for (int i = 0; i < str.length(); i += 2) {
+			everyOther += str.charAt(i);
+		}
+		return everyOther;
 	}
 
 	/*
@@ -309,7 +363,11 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String stringy = "";
+		for (int i = 0; i < str.length(); i++) {
+			stringy += str.substring(0, i + 1);
+		}
+		return stringy;
 	}
 
 	/*
@@ -320,7 +378,16 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+		int counter = 0;
+		String lastTwo = str.substring(str.length() - 1);
+		String allButLastTwo = str.substring(0, str.length() - 1);
+		for (int i = 0; i < allButLastTwo.length(); i++) {
+			String iterator = allButLastTwo.substring(i);
+			if (iterator.startsWith(lastTwo)) {
+				counter++;
+			}
+		}
+		return counter;
 	}
 
 	/*
@@ -331,7 +398,14 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		String outputString = "";
+		String newString = str.substring(1, str.length() - 1);
+		for (int i = 0; i < newString.length(); i++) {
+			if (i == 'x') {
+			}
+		}
+	return null;
+
 	}
 
 	/*
