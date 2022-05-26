@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Exercises {
@@ -34,7 +35,28 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		if (animalName == null || animalName.equals("")) {
+			return "unknown";
+		}
+
+		Map<String, String> animalGroupings = new HashMap<>();
+		animalGroupings.put("rhino", "Crash");
+		animalGroupings.put("giraffe", "Tower");
+		animalGroupings.put("elephant", "Herd");
+		animalGroupings.put("lion", "Pride");
+		animalGroupings.put("crow", "Murder");
+		animalGroupings.put("pigeon", "Kit");
+		animalGroupings.put("flamingo", "Pat");
+		animalGroupings.put("deer", "Herd");
+		animalGroupings.put("dog", "Pack");
+		animalGroupings.put("crocodile", "Float");
+
+		animalName = animalName.toLowerCase();
+
+		if (animalGroupings.containsKey(animalName)) {
+			return animalGroupings.get(animalName);
+		}
+		return "unknown";
 	}
 
 	/*
@@ -60,7 +82,23 @@ public class Exercises {
 	 *
 	 */
 	public double isItOnSale(String itemNumber) {
-		return -1.0;
+		if (itemNumber == null || itemNumber.equals("")) {
+		return 0.00;
+	}
+		Map<String, Double> saleMap = new HashMap<>();
+		saleMap.put("kitchen4001", 0.20);
+		saleMap.put("garage1070", 0.15);
+		saleMap.put("livingroom", 0.10);
+		saleMap.put("kitchen6073", 0.40);
+		saleMap.put("bedroom3434", 0.60);
+		saleMap.put("bath0073", 0.15);
+		itemNumber = itemNumber.toLowerCase();
+		if (saleMap.containsKey(itemNumber)) {
+			return saleMap.get(itemNumber);
+		}
+
+
+		return 0.00;
 	}
 
 	/*
@@ -74,6 +112,10 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
+		if (peterPaul.get("Peter") > 0 && peterPaul.get("Paul") < 1000) {
+			int toPaul = peterPaul.get("Peter") / 2;
+
+		}
 		return null;
 	}
 
