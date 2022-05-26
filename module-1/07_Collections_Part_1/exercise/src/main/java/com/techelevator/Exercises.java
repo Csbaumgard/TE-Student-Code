@@ -127,7 +127,7 @@ public class Exercises {
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		List<String> newList = new ArrayList<>();
+		List<String> newList = new ArrayList<>(integerArray.length);
 		for (int i : integerArray) {
 			if (i % 5 == 0 && i % 3 == 0) {
 				newList.add("FizzBuzz");
@@ -151,8 +151,25 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		List<Integer> interwovenIntegers = new ArrayList<>();
-		return null;
+		List<Integer> interwovenIntegers = new ArrayList<>(listOne.size() + listTwo.size());
+		List<Integer> largerList;
+		int minSize;
+		if (listOne.size() > listTwo.size()) {
+			largerList = listOne;
+			minSize = listTwo.size();
+		} else {
+			largerList = listTwo;
+			minSize = listOne.size();
+		}
+		for (int i = 0; i < listOne.size(); i++) {
+			interwovenIntegers.add(listOne.get(i));
+			interwovenIntegers.add(listTwo.get(i));
+		}
+		for (int i = minSize; i < largerList.size(); i++) {
+			int listElement = largerList.get(i);
+			interwovenIntegers.add(listElement);
+		}
+		return interwovenIntegers;
 	}
 
 }
