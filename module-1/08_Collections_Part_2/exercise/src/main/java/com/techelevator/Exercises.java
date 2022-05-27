@@ -112,11 +112,15 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		if (peterPaul.get("Peter") > 0 && peterPaul.get("Paul") < 1000) {
-			int toPaul = peterPaul.get("Peter") / 2;
+		int peter = peterPaul.get("Peter");
+		int paul = peterPaul.get("Paul");
+		if (peter > 0 && paul < 1000) {
+			int toPaul = peter / 2;
+			peterPaul.put("Paul", paul + toPaul);
+			peterPaul.put("Peter", peter - toPaul);
 
 		}
-		return null;
+		return peterPaul;
 	}
 
 	/*
@@ -129,7 +133,16 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		int peterPaulPartnership = 0;
+		int peter = peterPaul.get("Peter");
+		int paul = peterPaul.get("Paul");
+		if (peter >= 5000 && paul >= 10000) {
+			peterPaul.put("PeterPaulPartnership", (peter / 4) + (paul / 4));
+			peterPaul.put("Peter", peter - (peter / 4));
+			peterPaul.put("Paul", paul - (paul / 4));
+
+		}
+		return peterPaul;
 	}
 
 	/*
@@ -141,7 +154,11 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map<String, String> newMap = new HashMap<>();
+		for (String s : words) {
+			newMap.put(s.substring(0, 1), s.substring(s.length() - 1));
+		}
+		return newMap;
 	}
 
 	/*
@@ -157,7 +174,15 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
-		return null;
+		Map<String, Integer> newMap = new HashMap();
+		for (String s : words) {
+			if (newMap.containsKey(s)) {
+				int counter = newMap.get(s);
+				newMap.put(s, counter + 1);
+			} else
+				newMap.put(s, 1);
+		}
+		return newMap;
 	}
 
 	/*
@@ -172,7 +197,16 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> newMap = new HashMap<>();
+		for (int i : ints) {
+			if (newMap.containsKey(i)) {
+				int counter = newMap.get(i);
+				newMap.put(i, counter + 1);
+			} else {
+				newMap.put(i, 1);
+			}
+		}
+		return newMap;
 	}
 
 	/*
@@ -185,7 +219,15 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String, Boolean> newMap = new HashMap<>();
+		for (String s : words) {
+			if (!newMap.containsKey(s)) {
+				newMap.put(s, false);
+			} else {
+				newMap.put(s, true);
+			}
+		}
+		return newMap;
 	}
 
 	/*
