@@ -261,7 +261,19 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> last2Revisited(String[] words) {
-		return null;
+		Map<String, Integer> newMap = new HashMap<>();
+		int counter = 0;
+		for (String word : words) {
+			String lastTwo = word.substring(word.length() - 2);
+			for (int i = 0; i < word.length() - 2; i++) {
+				String current2Chars = word.substring(i, i + 2);
+				if (lastTwo.equals(current2Chars)) {
+					counter++;
+				}
+			}
+			newMap.put(word, counter);
+		}
+		return newMap;
 	}
 
 }
