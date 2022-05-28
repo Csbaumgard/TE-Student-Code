@@ -1,5 +1,7 @@
 package com.techelevator.cardgame;
 
+import com.techelevator.draw.tool.WoodenPencil;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,5 +32,8 @@ public class Lecture {
         Deck pokerDeck = new Deck(pokerCards);
 
         pokerDeck.addCard(kingOfHearts);
+
+        WoodenPencil roundPencil = new WoodenPencil();
+        int shape = roundPencil.getShape();
     }
 }
