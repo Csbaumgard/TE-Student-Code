@@ -3,7 +3,7 @@ package com.techelevator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Auction {
+public class Auction extends Object {
 
 	private String itemForSale;
 	private Bid currentHighBid;
@@ -35,5 +35,9 @@ public class Auction {
 
 	public String getItemForSale() {
 		return itemForSale;
+	}
+
+	public boolean isAuctionEnded() {
+		return allBids.size() == 10;
 	}
 }
