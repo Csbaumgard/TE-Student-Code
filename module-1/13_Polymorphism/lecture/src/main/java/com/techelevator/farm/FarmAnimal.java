@@ -1,6 +1,6 @@
 package com.techelevator.farm;
 
-public class FarmAnimal {
+public class FarmAnimal implements Sellable {
 	private String name;
 	private String sound;
 
@@ -16,5 +16,12 @@ public class FarmAnimal {
 	public String getSound() {
 		return sound;
 	}
+
+	@Override
+	public int getPrice() {
+		return 1000000;
+	}
+
+
 
 }

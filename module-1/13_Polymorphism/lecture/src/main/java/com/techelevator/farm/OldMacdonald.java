@@ -2,6 +2,8 @@ package com.techelevator.farm;
 
 public class OldMacdonald {
 	public static void main(String[] args) {
+		Chicken chicken = new Chicken();
+		chicken.layEgg();
 
 		FarmAnimal[] farmAnimals = new FarmAnimal[] { new Cow(), new Chicken() };
 
@@ -15,5 +17,10 @@ public class OldMacdonald {
 			System.out.println("Here a " + sound + " there a " + sound + " everywhere a " + sound + " " + sound);
 			System.out.println();
 		}
+
+		Farm farm = new Farm();
+		farm.addAnimal(new Pig("Pig", "Oink"));
+		farm.addAnimal(new Cow());
+		farm.addAnimal(new Chicken());
 	}
 }
