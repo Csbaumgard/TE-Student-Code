@@ -2,6 +2,7 @@ package com.techelevator;
 
 public class CheckingAccount extends BankAccount {
 
+
     public CheckingAccount(String accountHolder, String accountNumber, int balance) {
         super(accountHolder, accountNumber, balance);
     }
