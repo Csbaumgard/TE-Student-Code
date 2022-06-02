@@ -4,4 +4,8 @@ public class Cow extends FarmAnimal {
 	public Cow() {
 		super("Cow", "moo!");
 	}
+
+	public String eat() {
+		return"grass";
+	}
 }
