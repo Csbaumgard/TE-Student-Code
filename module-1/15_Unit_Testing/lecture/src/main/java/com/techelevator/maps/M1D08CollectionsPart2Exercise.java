@@ -15,6 +15,9 @@ public class M1D08CollectionsPart2Exercise {
      *
      */
     public Map<String, Integer> wordCount(String[] words) {
+        if (words == null) {
+            return null;
+        }
         Map<String, Integer> wordCount = new HashMap<>();
         for (String word : words) {
             if (wordCount.containsKey(word)) {
