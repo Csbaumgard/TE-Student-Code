@@ -34,4 +34,10 @@ public class NonStartTest {
         String getPartialString = sut.getPartialString(null, null);
         Assert.assertEquals("", getPartialString);
     }
+    @Test
+    public void GetPartialString_returns_emptystring_given_H_and_T() {
+        NonStart sut = new NonStart();
+        String getPartialString = sut.getPartialString("H", "T");
+        Assert.assertEquals("", getPartialString);
+    }
 }
