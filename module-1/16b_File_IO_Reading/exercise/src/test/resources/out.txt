@@ -1,5 +1,0 @@
-*******************
-****Word Search****
-*******************
-Please enter path to input file -> 
-Please enter word to search for -> 
