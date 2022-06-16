@@ -1,49 +1,68 @@
 -- INSERT
 
 -- Add Disneyland to the park table. (It was established on 7/17/1955, has an area of 2.1 square kilometers and does not offer camping.)
-
+INSERT INTO park (park_name, date_established, area, has_camping)
+VALUES ('Disneyland', '7/17/1955', 2.1, false);
 
 -- Add Hawkins, IN (with a population of 30,000 and an area of 38.1 square kilometers) and Cicely, AK (with a popuation of 839 and an area of 11.4 square kilometers) to the city table.
-
+INSERT INTO city (city_name, state_abbreviation, population, area)
+VALUES ('Hawkins', 'IN', 30000, 38.1), ('Cicely', 'AK', 839, 11.4);
 
 -- Since Disneyland is in California (CA), add a record representing that to the park_state table.
-
-
+SELECT park_id
+FROM park
+WHERE park_name = 'Disneyland'
+INSERT INTO park_state (park_id, state_abbreviation)
+VALUES (64, 'CA');
 
 -- UPDATE
 
 -- Change the state nickname of California to "The Happiest Place on Earth."
-
+UPDATE state
+SET state_nickname = 'The Happiest Place on Earth.'
+WHERE state_abbreviation = 'CA';
 
 -- Increase the population of California by 1,000,000.
-
+UPDATE state
+SET population = population + 1000000
+WHERE state_abbreviation = 'CA';
 
 -- Change the capital of California to Anaheim.
+SELECT capital FROM state WHERE state_abbreviation = 'CA'
 
+UPDATE state
+SET capital = (SELECT city_id FROM city WHERE city_name = 'Anaheim')
+WHERE state_abbreviation = 'CA';
 
 -- Change California's nickname back to "The Golden State", reduce the population by 1,000,000, and change the capital back to Sacramento.
-
+UPDATE state
+SET state_nickname = 'The Golden State', 
+	population = population - 1000000, 
+	capital = (SELECT city_id FROM city WHERE city_name = 'Sacramento')
+WHERE state_abbreviation = 'CA';
 
 
 -- DELETE
 
 -- Delete Hawkins, IN from the city table.
-
+DELETE FROM city WHERE city_name = 'Hawkins' AND state_abbreviation = 'IN';
 
 -- Delete all cities with a population of less than 1,000 people from the city table.
-
+DELETE FROM city WHERE population < 1000;
 
 
 -- REFERENTIAL INTEGRITY
 
 -- Try adding a city to the city table with "XX" as the state abbreviation.
-
+INSERT INTO city (state_abbreviation, city_name, population, area)
+VALUES ('XX', 'City 1', 100, 5);
 
 -- Try deleting California from the state table.
-
+DELETE FROM state WHERE state_name = 'California';
 
 -- Try deleting Disneyland from the park table. Try again after deleting its record from the park_state table.
-
+DELETE FROM park_state WHERE park_id = (SELECT park_id FROM park WHERE park_name = 'Disneyland');
+DELETE FROM park WHERE park_name = 'Disneyland';
 
 
 -- CONSTRAINTS
@@ -71,7 +90,9 @@
 -- TRANSACTIONS
 
 -- Delete the record for Smallville, KS within a transaction.
-
+START TRANSACTION;
+ROLLBACK;
+COMMIT;
 
 -- Delete all of the records from the park_state table, but then "undo" the deletion by rolling back the transaction.
 
