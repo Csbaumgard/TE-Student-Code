@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class JdbcParkDaoTests extends BaseDaoTests {
 
@@ -18,6 +19,10 @@ public class JdbcParkDaoTests extends BaseDaoTests {
 
     private JdbcParkDao sut;
 
+
+    ///THIS_ONE///
+
+
     @Before
     public void setup() {
         sut = new JdbcParkDao(dataSource);
@@ -25,32 +30,85 @@ public class JdbcParkDaoTests extends BaseDaoTests {
 
     @Test
     public void getPark_returns_correct_park_for_id() {
-        Assert.fail();
+        // Arrange
+        int parkId = 2;
+
+        // Act
+        Park actualPark = sut.getPark(parkId);
+
+        // ASSert
+        Assert.assertEquals(PARK_2.getParkId(), actualPark.getParkId());
+        Assert.assertEquals(PARK_2.getParkId(), actualPark.getParkId());
+        Assert.assertEquals(PARK_2.getParkId(), actualPark.getParkId());
+
     }
 
     @Test
     public void getPark_returns_null_when_id_not_found() {
-        Assert.fail();
+        // Arrange
+        int parkId = -1;
+
+        // Act
+        Park actualPark = sut.getPark(parkId);
+
+        // ASSert
+        Assert.assertNull(actualPark);
     }
 
     @Test
     public void getParksByState_returns_all_parks_for_state() {
-        Assert.fail();
+        // Arrange
+        String stateAbbreviation = "AA";
+
+        // Act
+        List<Park> parks = sut.getParksByState(stateAbbreviation);
+
+        // ASSert
+        Assert.assertNotNull(parks);
+        Assert.assertEquals(2, parks.size());
+        assertParksMatch(PARK_1, parks.get(0));
+        assertParksMatch(PARK_3, parks.get(1));
     }
 
     @Test
     public void getParksByState_returns_empty_list_for_abbreviation_not_in_db() {
-        Assert.fail();
+        // Arrange
+        String stateAbbreviation = "XX";
+
+        // Act
+        List<Park> parks = sut.getParksByState(stateAbbreviation);
+
+        // ASSert
+        Assert.assertNotNull(parks);
+        Assert.assertEquals(0, parks.size());
     }
 
     @Test
     public void createPark_returns_park_with_id_and_expected_values() {
-        Assert.fail();
+        // Arrange
+        Park newPark = new Park(-1, "DisneyWorld", LocalDate.of(1950, 2, 20), 1.5, false);
+
+        // Act
+        Park actualPark = sut.createPark(newPark);
+
+        // ASSert
+        newPark.setParkId(actualPark.getParkId());
+        assertParksMatch(newPark, actualPark);
     }
 
     @Test
     public void created_park_has_expected_values_when_retrieved() {
-        Assert.fail();
+        // Arrange
+        Park newPark = new Park(-1, "DisneyWorld", LocalDate.of(1950, 2, 20), 1.5, false);
+
+        // Act
+        Park actualPark = sut.createPark(newPark);
+        int insertedParkId = actualPark.getParkId();
+        Park retrievedPark = sut.getPark(insertedParkId);
+
+        // ASSert
+        newPark.setParkId(actualPark.getParkId());
+        assertParksMatch(newPark, retrievedPark);
     }
 
     @Test
