@@ -1,10 +1,10 @@
 Bug 1
 -----
-Test that demonstrates problem:
+Test that demonstrates problem:createTimesheet_returns_timesheet_with_id_and_expected_values
 
-Expected output:
+Expected output:EmployeeId becomes 1
 
-Actual output:
+Actual output:EmployeeId is unaffected
 
 How did you fix this bug?
 
