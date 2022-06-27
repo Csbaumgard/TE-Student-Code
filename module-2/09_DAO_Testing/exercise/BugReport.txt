@@ -1,43 +1,44 @@
 Bug 1
 -----
-Test that demonstrates problem:createTimesheet_returns_timesheet_with_id_and_expected_values
-
-Expected output:EmployeeId becomes 1
-
-Actual output:EmployeeId is unaffected
-
+Test that demonstrates problem:
+    getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee()
+Expected output:
+    Returns list of all timesheets by employee id
+Actual output:
+    Not returning properly
 How did you fix this bug?
-
+    Replaced 'if' with 'while' on line 40
 
 Bug 2
 -----
 Test that demonstrates problem:
-
+    getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project()
 Expected output:
-
+    list of timesheets by project_id
 Actual output:
-
+    list of timesheets by employee_id
 How did you fix this bug?
-
+    Replaced 'employee_id = ?' with 'project_id = ?' on line 52
 
 Bug 3
 -----
 Test that demonstrates problem:
-
+    updated_timesheet_has_expected_values_when_retrieved()
 Expected output:
-
+    updated timesheet has billable = false
 Actual output:
-
+    actual timesheet remains unchanged has billable = true
 How did you fix this bug?
+    added 'billable = ?' to line 75
+    added 'updatedTimesheet.isBillable()' to line 78
 
-
-Bug 4
+Bug 4?
 -----
 Test that demonstrates problem:
-
+    Same as Bug 3?
 Expected output:
-
+    updated timesheet has billable = false
 Actual output:
-
+    actual timesheet remains unchanged has billable = true
 How did you fix this bug?
-
+    added 'updatedTimesheet.isBillable()' to line 78

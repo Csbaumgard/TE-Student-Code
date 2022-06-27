@@ -44,60 +44,74 @@ public class JdbcTimesheetDaoTests extends BaseDaoTests {
     public void getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee() {
         List<Timesheet> timesheetList = sut.getTimesheetsByEmployeeId(1);
         assertTimesheetsMatch(TIMESHEET_1, timesheetList.get(0));
+        assertTimesheetsMatch(TIMESHEET_2, timesheetList.get(1));
+
+        timesheetList = sut.getTimesheetsByEmployeeId(2);
+        assertTimesheetsMatch(TIMESHEET_3, timesheetList.get(0));
+        assertTimesheetsMatch(TIMESHEET_4, timesheetList.get(1));
     }
 
     @Test
     public void getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project() {
         List<Timesheet> timesheetList = sut.getTimesheetsByProjectId(1);
         assertTimesheetsMatch(TIMESHEET_1, timesheetList.get(0));
+        assertTimesheetsMatch(TIMESHEET_2, timesheetList.get(1));
+        assertTimesheetsMatch(TIMESHEET_3, timesheetList.get(2));
+
+        timesheetList = sut.getTimesheetsByProjectId(2);
+        assertTimesheetsMatch(TIMESHEET_4, timesheetList.get(0));
+
     }
 
     @Test
     public void createTimesheet_returns_timesheet_with_id_and_expected_values() {
-        Timesheet newTimesheet = new Timesheet(-1, -1, -1, LocalDate.of(1950,2 ,2), 1.5, false, "");
-        Timesheet actualTimesheet = sut.createTimesheet(newTimesheet);
-        newTimesheet.setTimesheetId(actualTimesheet.getTimesheetId());
-        newTimesheet.setEmployeeId(actualTimesheet.getEmployeeId());
-        newTimesheet.setProjectId(actualTimesheet.getProjectId());
-        assertTimesheetsMatch(newTimesheet, actualTimesheet);
+        Timesheet testTimesheet = new Timesheet(-1, 1, 1, LocalDate.of(1950, 2, 2), 1.5, true, "description");
+        Timesheet createdTimesheet = sut.createTimesheet(testTimesheet);
+
+        Integer newId = createdTimesheet.getTimesheetId();
+        Assert.assertTrue(newId > 0);
+        testTimesheet.setTimesheetId(newId);
+        assertTimesheetsMatch(testTimesheet, createdTimesheet);
     }
 
     @Test
     public void created_timesheet_has_expected_values_when_retrieved() {
-        Timesheet newTimesheet = new Timesheet(-1, -1, -1, LocalDate.of(1950,2 ,2), 1.5, false, "");
-        Timesheet actualTimesheet = sut.createTimesheet(newTimesheet);
-        int insertedTimesheetId = actualTimesheet.getTimesheetId();
-        Timesheet retrievedTimesheet = sut.getTimesheet(insertedTimesheetId);
-        newTimesheet.setTimesheetId(actualTimesheet.getTimesheetId());
-        assertTimesheetsMatch(newTimesheet, retrievedTimesheet);
+        Timesheet testTimesheet = new Timesheet(-1, 1, 1, LocalDate.of(1950, 2, 2), 1.5, true, "description");
+        Timesheet createdTimesheet = sut.createTimesheet(testTimesheet);
+
+        Integer newId = createdTimesheet.getTimesheetId();
+        Timesheet retrievedTimesheet = sut.getTimesheet(newId);
+
+        assertTimesheetsMatch(createdTimesheet, retrievedTimesheet);
+
     }
 
     @Test
     public void updated_timesheet_has_expected_values_when_retrieved() {
-        // Arrange
-        Timesheet timesheet1Updated = new Timesheet(1, 1, 1, LocalDate.of(1950,2 ,2), 1.5, false, "");
+        Timesheet timesheetToUpdate = sut.getTimesheet(1);
 
+        timesheetToUpdate.setBillable(false);
+        timesheetToUpdate.setDateWorked(LocalDate.of(2000, 2, 20));
+        timesheetToUpdate.setDescription("Changed");
 
-        // Act
-        sut.updateTimesheet(timesheet1Updated);
+        sut.updateTimesheet(timesheetToUpdate);
 
-        // Assert
-        Timesheet actualUpdatedTimesheet = sut.getTimesheet(1);
-        assertTimesheetsMatch(timesheet1Updated, actualUpdatedTimesheet);
+        Timesheet retrievedTimesheet = sut.getTimesheet(1);
+        assertTimesheetsMatch(timesheetToUpdate, retrievedTimesheet);
     }
 
     @Test
     public void deleted_timesheet_cant_be_retrieved() {
-        int timesheetIdToDelete = 1;
-        sut.deleteTimesheet(timesheetIdToDelete);
+        sut.deleteTimesheet(4);
 
-        Timesheet actualTimesheet = sut.getTimesheet(timesheetIdToDelete);
-        Assert.assertNull(actualTimesheet);
+        Timesheet retrievedTimesheet = sut.getTimesheet(4);
+        Assert.assertNull(retrievedTimesheet);
     }
 
     @Test
     public void getBillableHours_returns_correct_total() {
-
+        double billableHours = sut.getBillableHours(1, 1);
+        Assert.assertEquals(2.5, billableHours, 0);
     }
 
     private void assertTimesheetsMatch(Timesheet expected, Timesheet actual) {
