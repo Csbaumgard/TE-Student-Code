@@ -10,6 +10,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.techelevator.auctions.model.Auction;
 
+import java.awt.*;
+
 public class AuctionService {
 
     public static final String API_BASE_URL = "http://localhost:3000/auctions/";
@@ -17,17 +19,53 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        // place code here
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(newAuction, headers);
+
+        String url = API_BASE_URL;
+
+        try {
+            return restTemplate.postForObject(url, entity, Auction.class);
+        } catch (RestClientResponseException e) {
+            BasicLogger.log(e.getRawStatusCode() + " - " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
         return null;
     }
 
     public boolean update(Auction updatedAuction) {
-        // place code here
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Auction> entity = new HttpEntity<>(updatedAuction, headers);
+
+        String url = API_BASE_URL + updatedAuction.getId();
+
+        try {
+            restTemplate.put(url, entity);
+            return true;
+        } catch (RestClientResponseException e) {
+            BasicLogger.log(e.getRawStatusCode() + " - " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
         return false;
     }
 
     public boolean delete(int auctionId) {
-        // place code here
+        String url = API_BASE_URL + auctionId;
+
+        try {
+            restTemplate.delete(url);
+            return true;
+        } catch (RestClientResponseException e) {
+            BasicLogger.log(e.getRawStatusCode() + " - " + e.getStatusText());
+        } catch (ResourceAccessException e) {
+            BasicLogger.log(e.getMessage());
+        }
+
         return false;
     }
 
