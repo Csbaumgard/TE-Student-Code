@@ -40,4 +40,11 @@ public class HotelController {
         return hotelDao.get(id);
     }
 
+
+    public Hotel createHotel(Hotel hotelToCreate) {
+        return hotelDao.get(id);
+    }
+
+
+
 }
