@@ -114,8 +114,33 @@ public class HotelController {
 
 //    @RequestMapping(path = "/reservations", method = RequestMethod.GET)
     @GetMapping("/reservations")
-    public List<Reservation> listReservations() {
-        return reservationDao.findAll();
+    public List<Reservation> listReservations(@RequestParam(name = "name_like", required = false) String nameLike, @RequestParam(name = "guests_lte", required = false) int guestsLte) {
+
+        List<Reservation> allReservations = reservationDao.findAll();
+
+        if (nameLike == null && guestsLte == -1) {
+            return allReservations;
+        }
+
+        List<Reservation> filteredReservations = new ArrayList<>();
+
+        if (nameLike != null) {
+            for (Reservation r : allReservations) {
+                if (r.getFullName().contains(nameLike)) {
+                    filteredReservations.add(r);
+                }
+            }
+            return filteredReservations;
+        }
+        if (guestsLte > 0) {
+            for (Reservation r : allReservations) {
+                if (r.getGuests() <= guestsLte) {
+                    filteredReservations.add(r);
+                }
+            }
+            return filteredReservations;
+        }
+        return filteredReservations;
     }
 
     // http://localhost:8080/reservations?hotelID={id}
