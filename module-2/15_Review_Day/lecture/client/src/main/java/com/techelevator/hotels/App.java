@@ -4,11 +4,13 @@ import com.techelevator.hotels.model.Hotel;
 import com.techelevator.hotels.model.Reservation;
 import com.techelevator.hotels.services.ConsoleService;
 import com.techelevator.hotels.services.HotelService;
+import com.techelevator.hotels.services.ReviewService;
 
 public class App {
 
     private final ConsoleService consoleService = new ConsoleService();
     private final HotelService hotelService = new HotelService();
+    private final ReviewService reviewService = new ReviewService();
 
     public static void main(String[] args) {
         App app = new App();
