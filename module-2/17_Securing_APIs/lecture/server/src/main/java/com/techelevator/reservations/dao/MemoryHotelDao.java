@@ -2,10 +2,12 @@ package com.techelevator.reservations.dao;
 
 import com.techelevator.reservations.model.Address;
 import com.techelevator.reservations.model.Hotel;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MemoryHotelDao implements HotelDao {
 
     /**
