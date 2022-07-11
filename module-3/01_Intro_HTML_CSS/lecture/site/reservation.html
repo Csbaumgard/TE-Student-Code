@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Reservation</title>
+</head>
+<body>
+    <h1>Make a new reservation</h1>
+
+    <form action="https://examplesite.examplesite/Make_a_Reservation/" method="post">
+
+    <section>
+        <label for="reservation_name">Name: </label>
+        <input id="reservation_name" name="name" type="text">
+    </section>
+        
+    <section>
+        <label for="number_of_guests">Number Of Guests: </label>
+        <input id="number_of_guests" name="guests" type="number">
+    </section>
+
+    <section>
+        <label for="reservation_date">Date: </label>
+        <input type="date" name="date" id="reservation_date">
+    </section>
+
+    <section>
+        <label for="reservation_time">Time: </label>
+        <input type="time" name="time" id="reservation_time">
+    </section>
+
+    <section>
+        <label for="special_occasion">Is Special Occasion?</label>
+        <input type="checkbox" name="is_special" id="special_occasion">
+    </section>
+
+    <section>
+        <input type="submit" value="Create Reservation">
+    </section>
+
+    </form>
+</body>
+</html>
