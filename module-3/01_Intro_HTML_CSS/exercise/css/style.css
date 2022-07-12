@@ -1,6 +1,8 @@
 body {
     background-color: black;
     background-image: url(https://git.techelevator.com/campuses/nlr/may-2022/java-yellow/student-code/colton-baumgard-student-code/-/raw/main/module-3/01_Intro_HTML_CSS/exercise/Images/iyAUt-siMrvvoNq_U3BPj-transformed.jpeg);
+    animation-duration: 3s;
+    animation-name: slidein;
 }
 
 title {
@@ -10,10 +12,46 @@ title {
 header {
     font-size: xxx-large;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:rgb(0, 255, 85);
+    -webkit-text-stroke: 2px rgb(0, 72, 105);
 } 
 
 h1 {
     text-align: center;
+    color: green;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(0, 255, 85);
+    -webkit-text-stroke: 1px rgb(0, 72, 105);
+    font-style: italic;
 }
+h2 {
+    color: green;
+    text-align: center;
+    font-size: xx-large;
+}
+p {
+    text-align: center;
+    color: green;
+}
+h3 {
+    text-align: center;
+    color: green;
+}
+h4 {
+    text-align: center;
+    color: green;
+}
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
 
