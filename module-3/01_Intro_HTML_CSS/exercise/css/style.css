@@ -1,17 +1,19 @@
 body {
     background-color: black;
-    background-image: url(https://www.watermarkremover.io/6bb2891c-651f-43a5-8f7a-ac4b7746747d);
-    
+    background-image: url(https://git.techelevator.com/campuses/nlr/may-2022/java-yellow/student-code/colton-baumgard-student-code/-/raw/main/module-3/01_Intro_HTML_CSS/exercise/Images/iyAUt-siMrvvoNq_U3BPj-transformed.jpeg);
 }
+
 title {
     font-size: large;
 }
-p {
 
-}
 header {
     font-size: xxx-large;
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
 } 
+
+h1 {
+    text-align: center;
+}
 

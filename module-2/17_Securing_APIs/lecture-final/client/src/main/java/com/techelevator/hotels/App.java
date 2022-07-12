@@ -23,7 +23,7 @@ public class App {
             consoleService.printMainMenu();
             menuSelection = consoleService.promptForMenuSelection("Please choose an option: ");
             if (menuSelection == 1) {
-                handleListHotels();
+                threes();
             } else if (menuSelection == 2) {
                 handleListReservations();
             } else if (menuSelection == 3) {
@@ -143,4 +143,13 @@ public class App {
         }
     }
 
+    public void threes() {
+        int counter = 0;
+        for (int i = 0; i < 200; i++) {
+            counter++;
+            if (counter % 3 == 0) {
+                System.out.println(counter);
+            }
+        }
+    }
 }
