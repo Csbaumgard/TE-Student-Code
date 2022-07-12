@@ -4,8 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="css\info.css">
 </head>
 <body>
-    
+    <form name="SignUp" id="SignUp" method="POST" action="/SignUp">
+    <div>
+    <input name="name" id="name" type="text" required> Username
+    </div>
+    <div>
+        <input name="email" id="email" type="text" required> Email
+    </div>
+    <div>
+        <input name="date-of-birth" id="date-of-birth" type="date"> Date of Birth
+    </div>
+    <div>
+        <input name="favorite-color" id="favorite-color" type="color"> Favorite Color
+    </div>
+    <div>
+        <input name="lucky-number" id="lucky-number" type="number"> Lucky Number
+    </div>
+    <div>
+        <input name="confirmation" id="confirmation" type="checkbox"> Is this information correct?
+    </div>
+    <div>
+        <input name="submit" id="submit" formaction="submit" type="submit">
+    </div>
+</form>
 </body>
 </html>

@@ -26,15 +26,22 @@
             font-size: x-large;
             font-style: italic;
             color: rgb(0, 72, 105);
+            -webkit-text-stroke: 0.2pt rgb(0, 255, 85);
+            
         }
         ul {
-            list-style: circle left;
-            
             text-align: center;
-            color: rgb(0, 72, 105);
+            color: rgb(0, 255, 85);
+            list-style: circle inside;
+            font-size: x-large;
+            columns: 2;
+            column-rule-width: 0pt;
+            -webkit-text-stroke: 0.6pt rgb(0, 72, 105);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
     </style>
 </head>
+<section id="page">
 <body>
     <header id="header">The Official Twinkle Fan Page</header>
     <img class="center" id="dog" src="https://dogtime.com/assets/uploads/gallery/jack-russel-terrier-dog-breed-pictures/2-face.jpg" alt="A Jack Russell Terrorer">
@@ -46,7 +53,9 @@
                     <table>
                         <ul>
                             <li>Twinkle is my dog.</li>
-                            <li>Not that dog, <a href=""></a></li>
+                            <li>Not that dog, <a href="https://git.techelevator.com/campuses/nlr/may-2022/java-yellow/student-code/colton-baumgard-student-code/-/raw/main/module-3/01_Intro_HTML_CSS/exercise/Images/ugly_dog.jpg">this one.</a></li>
+                            <li>Twinkle is 2 years old.</li>
+                            <li>Twinkle is a good boy.</li>
                         </ul>
                     </table>
                 </section>
@@ -56,9 +65,19 @@
                 <blockquote>"woof"</blockquote>
                 <blockquote>"bark"</blockquote>
                 <blockquote>"grrr"</blockquote>
-    
-            <h4 id="links-section">Links</h4>
-    
+
+
+            <div>
+            <h4 id="links-section">Other Dogs</h4>
+            <a href="https://en.wikipedia.org/wiki/Dog_the_Bounty_Hunter">Dog</a>
+            </div>
+            <div>
+            <a href="https://www.imdb.com/title/tt0103786/">Other Dog</a>
+            </div>
+            <div>
+            <a href="info.html">Sign Up Now</a>
+            </div>
     </main>
+</section>
 </body>
 </html>
