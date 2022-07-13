@@ -68,7 +68,7 @@ main > header > img {
   margin-bottom: 2%;
 }
 main > img {
-  width: 99%;
-  margin-bottom: 1%;
+  width: 100%;
+  margin: auto;
 }
 
