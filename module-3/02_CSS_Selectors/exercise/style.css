@@ -32,11 +32,14 @@ li {
   margin-left: 10%;
   list-style: none;
   margin-bottom: 10%;
+  padding: 5%;
+  
 }
 a {
   font-weight: bold;
   color: #00ADEE;
   text-decoration: none;
+
 }
 div {
   width: 33%;
@@ -48,3 +51,11 @@ h2 {
 i {
   margin-inline: 3%;
 }
+aside > img {
+  width: 120px;
+  margin-left: 17%;
+}
+li:first-of-type {
+  text-decoration: underline;
+}
+
