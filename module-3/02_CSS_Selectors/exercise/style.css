@@ -17,12 +17,14 @@ ul {
 }
 aside {
   width: 200px;
+  height:100%;
   border: 1px solid rgba(0, 173, 238, 0.4);
   position: fixed;
-  height:100%;
+  padding-top: 5%;
 }
 main {
   margin-left: 220px;
+  margin-right: 20px;
   padding: 5%;
 }
 li {
