@@ -10,15 +10,37 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #logo {
+            width: 120px;
+            margin-left: 17%;
+            margin-bottom: 10%;
+        }
+        #first {
+            text-decoration: underline;
+        }
+        #tech {
+            height: 100px;
+            margin-bottom: 2%;
+        }
+        .banner {
+            width: 100%;
+            margin-bottom: 1%;
+        }
+        .left {
+            border-left: 1px solid rgba(170, 239, 135, 0.8);
+            border-spacing: 50px;
+        }
+    </style>
 </head>
 
 <body>
 
     <aside>
-        <img src="mark.png" alt="Tech Elevator Logo">
+        <img id="logo" src="mark.png" alt="Tech Elevator Logo">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a id="first" href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Portfolio</a></li>
@@ -29,7 +51,7 @@
 
     <main>
         <header>
-            <img src="stacked-logo.png" alt="Tech Elevator">
+            <img id="tech" src="stacked-logo.png" alt="Tech Elevator">
         </header>
         <img src="https://via.placeholder.com/2400X800" alt="2400x800 Image" class="banner">
         <section>
@@ -40,14 +62,14 @@
                     justo.
                     Mauris nec semper mauris, eu faucibus est.</p>
             </div>
-            <div id="our-work">
+            <div class="left" id="our-work">
                 <h2><i class="fas fa-pencil-alt"></i>Our Work</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor ipsum diam, mattis maximus
                     magna facilisis sed. Donec luctus metus vulputate turpis eleifend mollis. Praesent ut aliquet
                     justo.
                     Mauris nec semper mauris, eu faucibus est.</p>
             </div>
-            <div id="contact-us">
+            <div class="left" id="contact-us">
                 <h2><i class="fas fa-envelope"></i>Contact Us</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam porttitor ipsum diam, mattis maximus
                     magna facilisis sed. Donec luctus metus vulputate turpis eleifend mollis. Praesent ut aliquet

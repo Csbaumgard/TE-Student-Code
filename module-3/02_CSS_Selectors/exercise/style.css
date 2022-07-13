@@ -15,3 +15,36 @@ ul {
   margin: 0;
   padding: 0;
 }
+aside {
+  width: 200px;
+  border: 1px solid rgba(0, 173, 238, 0.4);
+  position: fixed;
+  height:100%;
+}
+main {
+  margin-left: 220px;
+}
+li {
+  text-align: center;
+  text-transform: uppercase;
+  width: 75%;
+  border-bottom: 1px solid rgba(0, 173, 238, 0.4);
+  margin-left: 10%;
+  list-style: none;
+  margin-bottom: 10%;
+}
+a {
+  font-weight: bold;
+  color: #00ADEE;
+  text-decoration: none;
+}
+div {
+  width: 33%;
+  display:inline-table;
+}
+h2 {
+  color: #8CC36F;
+}
+i {
+  margin-inline: 3%;
+}
