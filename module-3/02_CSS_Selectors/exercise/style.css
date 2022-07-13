@@ -23,6 +23,7 @@ aside {
 }
 main {
   margin-left: 220px;
+  margin-right: auto;
 }
 li {
   text-align: center;
@@ -43,7 +44,8 @@ a {
 }
 div {
   width: 33%;
-  display:inline-table;
+  display: inline-block;
+  padding: 5%;
 }
 h2 {
   color: #8CC36F;
@@ -52,10 +54,20 @@ i {
   margin-inline: 3%;
 }
 aside > img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   width: 120px;
-  margin-left: 17%;
 }
 li:first-of-type {
   text-decoration: underline;
+}
+main > header > img {
+  height: 100px;
+  margin-bottom: 2%;
+}
+main > img {
+  width: 100%;
+  margin-bottom: 1%;
 }
 
