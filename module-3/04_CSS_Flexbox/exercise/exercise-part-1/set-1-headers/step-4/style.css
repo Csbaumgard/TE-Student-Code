@@ -1,3 +1,15 @@
+header, nav, ul {
+  display: flex;
+  justify-content: flex-end;
+}
+img {
+  justify-content: left;
+}
+nav {
+  flex-grow: 1;
+}
+
+
 body {
   margin: 20px;
   padding: 0

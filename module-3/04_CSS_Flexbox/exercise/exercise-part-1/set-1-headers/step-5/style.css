@@ -1,3 +1,17 @@
+header, nav, ul {
+  display: flex;
+  justify-content: flex-start;
+}
+img {
+  justify-content: left;
+}
+nav {
+  flex-grow: 0;
+}
+.spacer {
+  flex: auto;
+}
+
 body {
   margin: 20px;
   padding: 0
