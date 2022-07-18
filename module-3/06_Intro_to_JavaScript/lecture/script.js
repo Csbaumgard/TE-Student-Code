@@ -10,8 +10,13 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
-  // Declares a variable those value can be changed
+  const name = "Colton";
+  // Declares a variable whose value can be changed
+  let age = 25;
+  age = 24;
   // Declares a variable that will always be an array
+  const myArray = [1, 2, 3, 4, 5];
+  return age;
 }
 
 /**
@@ -74,10 +79,15 @@ function objects() {
   };
 
   // Log the object
-
+  console.log(person);
   // Log the first and last name
-
+  console.log(person.firstName + " " + person.lastName);
+  console.log(`${person.firstName} ${person.lastName}`);
   // Log each employee
+  console.log(person.employees);
+  for (employee of person.employees) {
+    console.log(employee);
+  }
 }
 
 /*
