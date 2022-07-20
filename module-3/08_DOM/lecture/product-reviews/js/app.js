@@ -1,4 +1,4 @@
-const name = 'Cigar Parties for Dummies';
+const pageTitle = 'Cigar Parties for Dummies';
 const description = 'Host and plan the perfect cigar party for all of your squirrelly friends.';
 const reviews = [
   {
@@ -36,19 +36,45 @@ const reviews = [
  * Get our page page title by the id and the query the .name selector
  * once you have the element you can add the product name to the span.
  */
-function setPageTitle() {}
+function setPageTitle() {
+  const titleElement = document.getElementById('page-title');
+  const pageTitleElement = titleElement.querySelector('.name');
+  pageTitleElement.innerText = pageTitle;
+}
 
 /**
  * Add our product description to the page.
  */
-function setPageDescription() {}
+function setPageDescription() {
+  const descriptionElement = document.querySelector('.description');
+  descriptionElement.innerText = description;
+}
 
 /**
  * I will display all of the reviews on the page.
  * I will loop over the array of reviews and use some helper functions
  * to create the elements needed for our markup and add them to the DOM
- */
-function displayReviews() {}
+        <div class="review">
+            <h4></h4>
+            <div class="rating">
+                <img src="img/star.png" class="ratingStar"/>
+            </div>
+            <h3></h3>
+            <p></p>
+        </div> 
+*/
+function displayReviews() {
+  const mainElement = document.getElementById('main');
+
+  reviews.forEach((review) => {
+    const reviewDiv = document.createElement('div');
+    reviewDiv.classList.add('review');
+
+    addReviewer(reviewDiv, review.reviewer);
+    addTitle(reviewDiv, review.title);
+    mainElement.appendChild(reviewDiv);
+  });
+}
 
 /**
  * I will create a new h4 element with the name of the reviewer and append it to
@@ -57,7 +83,11 @@ function displayReviews() {}
  * @param {HTMLElement} parent: The element to append the reviewer to
  * @param {string} name The name of the reviewer
  */
-function addReviewer(parent, name) {}
+function addReviewer(parent, name) {
+  const h4 = document.createElement('h4');
+  h4.innerText = name;
+  parent.appendChild('h4');
+}
 
 /**
  * I will add the rating div along with a star image for the number of ratings 1-5
