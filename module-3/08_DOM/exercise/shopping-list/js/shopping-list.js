@@ -50,7 +50,8 @@ function displayGroceries() {
   
   groceries.forEach((item) => {
     const groceryList = document.createElement('li');
-    groceryList.classList.add('item');
+    groceryList.innerText = item.name;
+    
     groceryUl.appendChild(groceryList);
   });
 }
@@ -59,7 +60,13 @@ function displayGroceries() {
  * This function will be called when the button is clicked. You will need to get a reference
  * to every list item and add the class completed to each one
  */
-function markCompleted() {}
+function markCompleted() {
+  const completeList = document.querySelectorAll('.shopping-list ul li');
+
+  completeList.forEach((item) => { 
+    item.classList.add('completed');
+  });
+}
 
 setPageTitle();
 
