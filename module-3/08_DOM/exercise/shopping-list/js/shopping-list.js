@@ -1,17 +1,59 @@
-// add pageTitle
-
+// add pageTitle 
+const pageTitle = 'My Shopping List';
 // add groceries
-
+const groceries = [
+  {
+    name: 'Milk'
+  },
+  {
+    name: 'Eggs'
+  },
+  {
+    name: 'Butter'
+  },
+  {
+    name: 'Turkey'
+  },
+  {
+    name: 'Ham'
+  },
+  {
+    name: 'Juice'
+  },
+  {
+    name: 'Bread'
+  },
+  {
+    name: 'Steak'
+  },
+  {
+    name: 'Bananas'
+  },
+  {
+    name: 'Apples'
+  }
+];
 /**
  * This function will get a reference to the title and set its text to the value
  * of the pageTitle variable that was set above.
  */
-function setPageTitle() {}
+function setPageTitle() {
+  const h2Element = document.getElementById('title');
+  h2Element.innerText = pageTitle;
+}
 
 /**
  * This function will loop over the array of groceries that was set above and add them to the DOM.
  */
-function displayGroceries() {}
+function displayGroceries() {
+  const groceryUl = document.getElementById('groceries');
+  
+  groceries.forEach((item) => {
+    const groceryList = document.createElement('li');
+    groceryList.classList.add('item');
+    groceryUl.appendChild(groceryList);
+  });
+}
 
 /**
  * This function will be called when the button is clicked. You will need to get a reference
