@@ -61,11 +61,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const completeAll = document.getElementById('toggleAll');
   completeAll.addEventListener('click', () => {
-    if (allItemsIncomplete == true) {
+    if (allItemsIncomplete) {
       items.forEach((item) => {
         item.classList.add('completed');
         item.querySelector('i').classList.add('completed');
-        
+        completeAll.innerText = 'Mark All Incomplete';
+        allItemsIncomplete = false;
+      })
+    } else if (!allItemsIncomplete) {
+        items.forEach((item) => {
+          item.classList.remove('completed');
+          item.querySelector('i').classList.remove('completed');
+          completeAll.innerText = 'Mark All Complete';
+          allItemsIncomplete = true;
       })
     }
   })
