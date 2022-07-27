@@ -24,6 +24,9 @@
         </td>
       </tr>
       <!-- user listing goes here -->
+      <tr class="users" v-for="user in users" v-bind:key="user.firstName">
+
+      </tr>
     </tbody>
   </table>
 </template>
