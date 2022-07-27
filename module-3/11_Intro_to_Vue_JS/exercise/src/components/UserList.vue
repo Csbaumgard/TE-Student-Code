@@ -24,8 +24,22 @@
         </td>
       </tr>
       <!-- user listing goes here -->
-      <tr class="users" v-for="user in users" v-bind:key="user.firstName">
-
+      <tr class="users" v-for="user in users" v-bind:key="user.id">
+        <div class="first-name">
+          {{ user.firstName }}
+        </div>
+        <div class="last-name">
+          {{ user.lastName }}
+        </div>
+        <div class="username">
+          {{ user.username }}
+        </div>
+        <div class="email">
+          {{ user.emailAddress }}
+        </div>
+        <div class="status">
+          {{ user.status }}
+        </div>
       </tr>
     </tbody>
   </table>
@@ -37,12 +51,12 @@ export default {
   data() {
     return {
       users: [
-        { firstName: 'John', lastName: 'Smith', username: 'jsmith', emailAddress: 'jsmith@gmail.com', status: 'Active' },
-        { firstName: 'Anna', lastName: 'Bell', username: 'abell', emailAddress: 'abell@yahoo.com', status: 'Active' },
-        { firstName: 'George', lastName: 'Best', username: 'gbest', emailAddress: 'gbest@gmail.com', status: 'Disabled' },
-        { firstName: 'Ben', lastName: 'Carter', username: 'bcarter', emailAddress: 'bcarter@gmail.com', status: 'Active' },
-        { firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
-        { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Disabled' }
+        { id: 1, firstName: 'John', lastName: 'Smith', username: 'jsmith', emailAddress: 'jsmith@gmail.com', status: 'Active' },
+        { id: 2, firstName: 'Anna', lastName: 'Bell', username: 'abell', emailAddress: 'abell@yahoo.com', status: 'Active' },
+        { id: 3, firstName: 'George', lastName: 'Best', username: 'gbest', emailAddress: 'gbest@gmail.com', status: 'Disabled' },
+        { id: 4, firstName: 'Ben', lastName: 'Carter', username: 'bcarter', emailAddress: 'bcarter@gmail.com', status: 'Active' },
+        { id: 5, firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
+        { id: 6, firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Disabled' }
       ]
     }
   }

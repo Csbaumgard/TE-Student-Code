@@ -36,6 +36,39 @@
       </div>
     </div>
 
+    <a href="#" v-on:click.prevent="toggleShowFormOn">
+      {{ showForm ? 'Hide Form' : 'Show Form' }}
+      </a>
+    
+    <form v-on:submit.prevent="addNewReview" v-show="showForm">
+
+      <div class="form-element">
+        <label for="reviewer">Name:</label>
+        <input type="text" id="reviewer" v-model="newReview.reviewer">
+      </div>
+      <div class="form-element">
+        <label for="title">Title:</label>
+        <input type="text" id="title" v-model="newReview.title">
+      </div>
+      <div class="form-element">
+        <label for="rating">Rating:</label>
+        <select id="rating" v-model.number="newReview.rating"> <!--.number parses String as number-->
+          <option value="1">1 Star</option>
+          <option value="2">2 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="5">5 Stars</option>
+        </select>
+      </div>
+      <div class="form-element">
+        <label for="review">Review:</label>
+        <textarea id="review" cols="30" rows="10" v-model="newReview.review"></textarea>
+      </div>
+      <input type="submit" value="Save">
+      <input type="button" value="Cancel" v-on:click="resetForm">
+
+    </form>
+
     <div
       class="review"
       v-bind:class="{ isFavorited: review.isFavorited }"
@@ -67,6 +100,7 @@ export default {
   name: "product-review",
   data() {
     return {
+      showForm: false,
       name: "Cigar Parties for Dummies",
       description:
         "Host and plan the perfect cigar party for all of your squirrelly friends.",
@@ -144,6 +178,27 @@ export default {
       }, 0);
     },
   },
+  methods: {
+    addNewReview(e) {
+      e.preventDefault(); // another option to .prevent
+      
+      this.newReview.id = this.reviews.length + 1;
+      this.newReview.isFavorited = false;
+      this.reviews.unshift(this.newReview);
+      this.resetForm();
+      
+    },
+    resetForm() {
+      this.newReview = {};
+      this.showForm = false;
+    },
+    toggleShowFormOn() {
+      this.showForm = true;
+    },
+    toggleShowFormOff() {
+      this.showForm = false;
+    }
+  }
 };
 </script>
 
