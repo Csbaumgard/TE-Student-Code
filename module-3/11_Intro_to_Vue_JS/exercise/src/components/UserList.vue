@@ -11,10 +11,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" id="firstNameFilter"/></td>
-        <td><input type="text" id="lastNameFilter"/></td>
-        <td><input type="text" id="usernameFilter"/></td>
-        <td><input type="text" id="emailFilter"/></td>
+        <td><input type="text" id="firstNameFilter" v-model="filter.firstName"/></td>
+        <td><input type="text" id="lastNameFilter" v-model="filter.lastName"/></td>
+        <td><input type="text" id="usernameFilter" v-model="filter.username"/></td>
+        <td><input type="text" id="emailFilter" v-model="filter.emailAddress"/></td>
         <td>
           <select id="statusFilter">
             <option value="">Show All</option>
@@ -25,21 +25,21 @@
       </tr>
       <!-- user listing goes here -->
       <tr class="users" v-for="user in users" v-bind:key="user.id">
-        <div class="first-name">
+        <td class="first-name">
           {{ user.firstName }}
-        </div>
-        <div class="last-name">
+        </td>
+        <td class="last-name">
           {{ user.lastName }}
-        </div>
-        <div class="username">
+        </td>
+        <td class="username">
           {{ user.username }}
-        </div>
-        <div class="email">
+        </td>
+        <td class="email">
           {{ user.emailAddress }}
-        </div>
-        <div class="status">
+        </td>
+        <td class="status">
           {{ user.status }}
-        </div>
+        </td>
       </tr>
     </tbody>
   </table>
