@@ -11,11 +11,12 @@ export default {
   props: ["rating"],
   methods: {
     updateFilter() {
+      this.$store.commit('UPDATE_FILTER', parseInt(this.rating));
     }
   },
   computed: {
     numberOfReviews() {
-      const reviews = [];
+      const reviews = this.$store.state.reviews;
       return reviews.reduce((currentCount, review) => {
         if(review.rating === parseInt(this.rating)) {
           currentCount++;

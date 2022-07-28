@@ -4,14 +4,14 @@
     <p class="description">{{ $store.state.description }}</p>
     <div class="well-display">
       <average-summary></average-summary>
-      <star-summary></star-summary>
-      <star-summary></star-summary>
-      <star-summary></star-summary>
-      <star-summary></star-summary>
-      <star-summary></star-summary>
+      <star-summary :rating="1"></star-summary> <!-- : = v-bind -->
+      <star-summary :rating="2"></star-summary>
+      <star-summary :rating="3"></star-summary>
+      <star-summary :rating="4"></star-summary>
+      <star-summary :rating="5"></star-summary>
     </div>
     <add-review></add-review>
-    <review-list></review-list>
+    <review-table></review-table>
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 import AverageSummary from "./components/AverageSummary.vue";
 import StarSummary from "./components/StarSummary.vue";
 import AddReview from "./components/AddReview.vue";
-import ReviewList from "./components/ReviewList.vue";
+import ReviewTable from "./components/ReviewTable.vue"
 
 export default {
   name: "app",
@@ -27,7 +27,7 @@ export default {
     AverageSummary,
     StarSummary,
     AddReview,
-    ReviewList
+    ReviewTable
   }
 };
 </script>

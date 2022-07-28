@@ -55,11 +55,15 @@ export default {
   },
   methods: {
     addNewReview() {
+      // mutate the store to add the new review
+      this.$store.commit('ADD_REVIEW', this.newReview);
       this.resetForm();
     },
     resetForm() {
       this.showForm = false;
-      this.newReview = {};
+      this.newReview = {
+        isFavorited: false
+      };
     },
   },
 };
