@@ -50,6 +50,13 @@ export default {
   name: 'user-list',
   data() {
     return {
+      filter: {
+        firstName: "",
+        lastName: "",
+        username: "",
+        emailAddress: "",
+        status: ""
+      },
       users: [
         { id: 1, firstName: 'John', lastName: 'Smith', username: 'jsmith', emailAddress: 'jsmith@gmail.com', status: 'Active' },
         { id: 2, firstName: 'Anna', lastName: 'Bell', username: 'abell', emailAddress: 'abell@yahoo.com', status: 'Active' },
@@ -59,8 +66,44 @@ export default {
         { id: 6, firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Disabled' }
       ]
     }
+  },
+  computed: {
+    filteredList() {
+      let filteredUsers = this.users;
+      if (this.filter.firstName != "") {
+        filteredUsers = filteredUsers.filter((user) => user.firstName.toLowerCase().includes(this.filter.firstName.toLowerCase()));
+      }
+      if (this.filter.lastName != "") {
+        filteredUsers = filteredUsers.filter((user) =>
+          user.lastName
+            .toLowerCase()
+            .includes(this.filter.lastName.toLowerCase())
+        );
+      }
+      if (this.filter.username != "") {
+        filteredUsers = filteredUsers.filter((user) =>
+          user.username
+            .toLowerCase()
+            .includes(this.filter.username.toLowerCase())
+        );
+      }
+      if (this.filter.emailAddress != "") {
+        filteredUsers = filteredUsers.filter((user) =>
+          user.emailAddress
+            .toLowerCase()
+            .includes(this.filter.emailAddress.toLowerCase())
+        );
+      }
+      if (this.filter.status != "") {
+        filteredUsers = filteredUsers.filter((user) =>
+          user.status === this.filter.status
+        );
+      }
+      return filteredUsers;
+    }
+    }
   }
-}
+
 </script>
 
 <style scoped>
