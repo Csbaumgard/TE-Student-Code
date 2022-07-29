@@ -64,24 +64,24 @@
       <button>Delete Users</button>
     </div>
 
-    <button>Add New User</button>
-
-    <form id="frmAddNewUser">
+    <button v-on:click.prevent="toggleShowForm" >Add New User</button>
+    
+    <form id="frmAddNewUser" v-on:submit.prevent="addNewReview" v-show="showForm">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" v-model="newUser.firstName"/>
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" name="lastName" v-model="newUser.lastName"/>
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" v-model="newUser.username"/>
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" name="emailAddress" v-model="newUser.emailAddress"/>
       </div>
       <button type="submit" class="btn save">Save User</button>
     </form>
@@ -160,7 +160,21 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    resetForm() {
+      this.newUser = {};
+      this.toggleShowForm();
+  },
+    saveUser() {
+      this.newUser.id = this.users.length + 1;
+      this.users.unshift(this.newUser);
+      this.resetForm();
+  },
+    toggleShowForm() {
+      this.showForm = !this.showForm;
+    },
+  },
+
   computed: {
     filteredList() {
       let filteredUsers = this.users;
@@ -198,7 +212,7 @@ export default {
         );
       }
       return filteredUsers;
-    }
+    },
   }
 };
 </script>
