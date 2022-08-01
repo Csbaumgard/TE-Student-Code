@@ -52,7 +52,7 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable" v-on:click="flipStatus(user.id)">{{ user.status === 'Active' ? 'Disable' : 'Enable' }}</button>
           </td>
         </tr>
       </tbody>
@@ -174,8 +174,18 @@ export default {
       this.showForm = !this.showForm;
     },
   },
+  flipStatus(id) {
+    const theUserToUpdate = this.users.find(user => user.id === id);
+
+    if(theUserToUpdate.status === 'Active') {
+      theUserToUpdate.status = 'Disabled';
+    } else {
+      theUserToUpdate.status = 'Active';
+    }
+  },
 
   computed: {
+
     filteredList() {
       let filteredUsers = this.users;
       if (this.filter.firstName != "") {
