@@ -10,7 +10,7 @@
 <script>
 export default {
     name: 'book-card',
-    props: ["book"],
+    props: ['book'],
     methods: {
         toggleRead() {
             if (!this.read) {
