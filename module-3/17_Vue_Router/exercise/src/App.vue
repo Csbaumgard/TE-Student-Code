@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <nav>
+      <a href="http://localhost:8080/">Home </a>
+      <a href="http://localhost:8080/myBooks">My Books</a>
+    </nav>
     <router-view />
   </div>
 </template>
