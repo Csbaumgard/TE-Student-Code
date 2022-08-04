@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import webService from '../services/WebService.js'
+
 export default {
   name: 'topic-details',
   props: {
@@ -24,6 +26,11 @@ export default {
         messages: []
       },
     }
+  },
+  created() {
+    webService.getTopicById(this.$route.params.id).then(response => {
+      this.topic = response.data;
+    })
   }
 }
 </script>
