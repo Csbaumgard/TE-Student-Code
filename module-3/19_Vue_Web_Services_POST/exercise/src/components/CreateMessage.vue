@@ -32,7 +32,17 @@ export default {
   },
   methods: {
     saveMessage() {
-
+      const newMessage = {
+        id: this.message.id,
+        topicId: this.message.topicId,
+        title: this.message.title,
+        messageText: this.message.messageText
+      };
+      messageService.create(newMessage).then(response => {
+        if (response.status === 201) {
+          this.$router.push(`/${ newMessage.topicId }`)
+        }
+      })
     }
   }
 };

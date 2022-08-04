@@ -24,7 +24,17 @@ export default {
     };
   },
   methods: {
-    saveTopic() {}
+    saveTopic() {
+      const newTopic = {
+        id: this.topic.id,
+        title: this.topic.title
+      };
+      topicService.create(newTopic).then(response => {
+        if (response.status === 201) {
+          this.$router.push({ name: 'Home' });
+        }
+      })
+    }
   }
 };
 </script>
